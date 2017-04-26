@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>swipper</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/swiper-3.4.1.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+
+	<style type="text/css">
+
+		/* 给Swiper定义一个大小 */
+		.swiper-container {
+		    width: 640px;
+		    height: 1008px;
+		}  
+		.back1{
+			background-image: url('images/bg1.png');
+		}
+		.back2{
+			background-image: url('images/bg2.jpg');
+		}
+		.back3{
+			background-image: url('images/bg3.jpg');
+		}
+		.back4{
+			background-image: url('images/bg4.jpg');
+		}
+		.back5{
+			background-image: url('images/bg5.png');
+		}
+		#title img{
+			width: 450px;
+			height: 150px;
+			position: absolute;
+			top: 100px;
+			left: 20px;
+		}
+		#text{
+			position: absolute;
+			top: 300px;
+			left: 20px;
+			font-size: 35px;
+			color: gray;
+		}
+		#car img{
+			width: 644px;
+			height: 390px;
+			position: absolute;
+			top: 650px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide back1">
+        	<div class="logo"><img src="images/logo.png" alt=""></div>
+        	<div id="title" class="ani" swiper-animate-effect="swing" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="images/bg11.png" alt=""></div>
+        	<div id="text" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        		<p>剑俊驽张对峙，更是英雄相借的跃跃欲试...</p>
+        		<p>奴见高尔夫R-Line，遇见另一个自己</p>
+        	</div>
+        	<div id="car" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="images/car.png" alt=""></div>
+        	
+        </div>
+        <div class="swiper-slide back2">
+        	<div id="title" class="ani" swiper-animate-effect="swing" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="images/bg11.png" alt=""></div>
+        	<div id="text" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        		<p>剑俊驽张对峙，更是英雄相借的跃跃欲试...</p>
+        		<p>奴见高尔夫R-Line，遇见另一个自己</p>
+        	</div>
+        	<div id="car" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="images/car.png" alt=""></div>
+        </div>
+        <div class="swiper-slide back3">
+        	<div id="title" class="ani" swiper-animate-effect="swing" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="images/bg11.png" alt=""></div>
+        	<div id="text" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        		<p>剑俊驽张对峙，更是英雄相借的跃跃欲试...</p>
+        		<p>奴见高尔夫R-Line，遇见另一个自己</p>
+        	</div>
+        	<div id="car" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="images/car.png" alt=""></div>
+        </div>
+        <div class="swiper-slide back4">
+        	<div id="title" class="ani" swiper-animate-effect="swing" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="images/bg11.png" alt=""></div>
+        	<div id="text" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        		<p>剑俊驽张对峙，更是英雄相借的跃跃欲试...</p>
+        		<p>奴见高尔夫R-Line，遇见另一个自己</p>
+        	</div>
+        	<div id="car" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="images/car.png" alt=""></div>
+        </div>
+    </div>
+    
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+<!-- 导航等组件可以放在container之外 -->
+	
+	<script src="jq/swiper-3.4.1.jquery.min.js"></script>
+	<script src="js/swiper-3.4.1.min.js"></script>
+	<script src="js/swiper.animate1.0.2.min.js"></script>
+
+
+
+<!-- 初始化Swiper：最好是挨着</body>标签 -->
+	<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical',
+    
+    autoplay:2000,
+
+	    onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+	    swiperAnimateCache(swiper); //隐藏动画元素 
+	    swiperAnimate(swiper); //初始化完成开始动画
+	  }, 
+	  onSlideChangeEnd: function(swiper){ 
+	    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+	  } 
+  });
+  </script>
+
+<!-- 初始化时隐藏元素并在需要的时刻开始动画。 -->
+  <script> 
+                 
+  </script>
+</body>
+</html>
